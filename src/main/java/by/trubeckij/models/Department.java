@@ -12,10 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-@Builder
+
 public class Department {
     private static final double DEFAULT_ZERO_SALARY = 0.0;
     private static final int MINIMUM_SALARY_THRESHOLD = 0;

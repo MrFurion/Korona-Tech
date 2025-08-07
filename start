@@ -4,3 +4,4 @@ java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=asc --stat
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=desc --stat
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=desc --stat -o=file --path=output/statistics.txt
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar --stat
+java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=desc --stat --output=console

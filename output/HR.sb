@@ -1,6 +1,6 @@
 Manager,1,Jane Smith,5000,HR
-Employee,121,Alex Doe,3001,1
 Employee,124,Bob Doe,3004,1
-Employee,122,Jerry Doe,3002,1
-Employee,101,John Doe,3000,1
 Employee,123,Tom Doe,3003,1
+Employee,122,Jerry Doe,3002,1
+Employee,121,Alex Doe,3001,1
+Employee,101,John Doe,3000,1

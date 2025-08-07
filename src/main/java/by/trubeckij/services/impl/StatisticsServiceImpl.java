@@ -1,39 +1,45 @@
 package by.trubeckij.services.impl;
 
+import by.trubeckij.enums.ArgsParameters;
 import by.trubeckij.models.Department;
 import by.trubeckij.services.StatisticsService;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.DecimalFormat;
 import java.util.List;
 
+import static java.lang.System.out;
+
+@Slf4j
 public class StatisticsServiceImpl implements StatisticsService {
 
+    public static final String FORMAT = "%s,%.2f,%.2f,%.2f\n";
+    public static final String DEPARTMENT_MIN_MAX_MID = "department,min,max,mid\n";
 
     public void generate(List<Department> departments, String output, String path) throws IOException {
-        StringBuilder stats = new StringBuilder("department,min,max,mid\n");
+        StringBuilder stats = new StringBuilder(DEPARTMENT_MIN_MAX_MID);
         departments.stream()
-                .sorted()
+                .sorted((d1, d2) -> d1.getManager().getDepartment().compareTo(d2.getManager().getDepartment()))
                 .forEach(department -> {
                     double min = department.getMinSalary();
                     double max = department.getMaxSalary();
                     double avg = department.getAverageSalary();
-                    stats.append(String.format("%s,%.2f,%.2f,%.2f\n",
+                    stats.append(String.format(FORMAT,
                             department.getManager().getDepartment(),
                             min, max, avg));
                 });
 
-        if ("file".equals(output)) {
+        if (ArgsParameters.FILE.getArgsParameter().equals(output)) {
             Files.createDirectories(Paths.get(path).getParent());
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
                 writer.write(stats.toString());
             }
         } else {
-            System.out.println(stats);
+            out.println(stats);
         }
     }
 }
