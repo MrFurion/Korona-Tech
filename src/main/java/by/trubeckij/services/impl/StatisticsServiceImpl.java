@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 
 import static java.lang.System.out;
@@ -23,7 +24,7 @@ public class StatisticsServiceImpl implements StatisticsService {
     public void generate(List<Department> departments, String output, String path) throws IOException {
         StringBuilder stats = new StringBuilder(DEPARTMENT_MIN_MAX_MID);
         departments.stream()
-                .sorted((d1, d2) -> d1.getManager().getDepartment().compareTo(d2.getManager().getDepartment()))
+                .sorted(Comparator.comparing(d -> d.getManager().getDepartment()))
                 .forEach(department -> {
                     double min = department.getMinSalary();
                     double max = department.getMaxSalary();

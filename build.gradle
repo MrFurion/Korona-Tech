@@ -19,6 +19,12 @@ dependencies {
     annotationProcessor "org.mapstruct:mapstruct-processor:1.5.5.Final"
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.mockito:mockito-inline:5.0.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation "org.assertj:assertj-core:3.24.2"
+    testImplementation 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.mockito:mockito-core:5.5.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.5.0'
 }
 
 shadowJar {

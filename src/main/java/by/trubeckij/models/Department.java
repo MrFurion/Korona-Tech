@@ -1,18 +1,13 @@
 package by.trubeckij.models;
 
 import by.trubeckij.enums.ArgsParameters;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 @Data
-
 public class Department {
     private static final double DEFAULT_ZERO_SALARY = 0.0;
     private static final int MINIMUM_SALARY_THRESHOLD = 0;

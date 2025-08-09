@@ -1,5 +1,10 @@
 package by.trubeckij.enums;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum ArgsParameters {
     CONSOLE("console"),
     FILE("file"),
@@ -13,12 +18,4 @@ public enum ArgsParameters {
     ORDER("order"),
     SORT("sort");
     private final String argsParameter;
-
-    ArgsParameters(String argsParameter) {
-        this.argsParameter = argsParameter;
-    }
-
-    public String getArgsParameter() {
-        return argsParameter;
-    }
 }

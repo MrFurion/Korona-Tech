@@ -19,6 +19,7 @@ public class FileServicesImpl implements FileServices {
     private static final String IO_ERROR = "IO Error: ";
     private static final int EXIT_CODE_INVALID_ARGS = 1;
     private static final int EXIT_CODE_IO_ERROR = 1;
+    public static final String JOIN_MESSAGE = "{}";
     private final ProcessorRepository processorService = new ProcessorRepositoryImpl();
 
     public void sortedParamsFiles(String[] args) {
@@ -34,10 +35,10 @@ public class FileServicesImpl implements FileServices {
                     params.get(ArgsParameters.PATH.getArgsParameter())
             );
         } catch (IllegalArgumentException e) {
-            log.error(ERROR + e.getMessage());
+            log.error(ERROR + JOIN_MESSAGE, e.getMessage());
             System.exit(EXIT_CODE_INVALID_ARGS);
         } catch (IOException e) {
-            log.error(IO_ERROR + e.getMessage());
+            log.error(IO_ERROR + JOIN_MESSAGE, e.getMessage());
             System.exit(EXIT_CODE_IO_ERROR);
         }
     }

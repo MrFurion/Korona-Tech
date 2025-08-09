@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Manager {
+    public static final String FORMAT = "Manager,%d,%s,%.0f,%s";
     private int id;
     private String name;
     private double salary;
@@ -17,6 +18,6 @@ public class Manager {
 
     @Override
     public String toString() {
-        return String.format("Manager,%d,%s,%.0f,%s", id, name, salary, department);
+        return String.format(FORMAT, id, name, salary, department);
     }
 }
