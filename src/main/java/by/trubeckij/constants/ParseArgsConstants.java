@@ -12,5 +12,4 @@ public class ParseArgsConstants {
     public static final String SHORT_FLAG_PREFIX = "-";
     public static final String EMPTY_VALUE = "";
     public static final String KEY_VALUE_SEPARATOR = "=";
-
 }
