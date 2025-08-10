@@ -12,13 +12,11 @@ import static by.trubeckij.constants.ValidatorConstants.INVALID_SORT_TYPE;
 import static by.trubeckij.constants.ValidatorConstants.ORDER_SPECIFIED_WITHOUT_SORT_PARAMETER;
 import static by.trubeckij.constants.ValidatorConstants.OUTPUT_FILE_SPECIFIED_WITHOUT_PATH;
 import static by.trubeckij.constants.ValidatorConstants.OUTPUT_OR_PATH_SPECIFIED_WITHOUT_STAT;
-import static by.trubeckij.constants.ValidatorConstants.PATH_SPECIFIED_WITHOUT_OUTPUT_FILE;
 import static by.trubeckij.constants.ValidatorConstants.UNKNOWN_PARAMETER;
+import static by.trubeckij.constants.ValidatorConstants.WHEN_USING_OUTPUT_FILE_YOU_MUST_SPECIFY_A_NON_EMPTY_PATH_WITH_PATH_PATH;
 
 @Slf4j
 public class Validator {
-
-    public static final String WHEN_USING_OUTPUT_FILE_YOU_MUST_SPECIFY_A_NON_EMPTY_PATH_WITH_PATH_PATH = "When using --output=file, you must specify a non-empty path with --path=<path>";
 
     private Validator() {
     }

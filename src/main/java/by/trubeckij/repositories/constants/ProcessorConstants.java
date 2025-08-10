@@ -3,6 +3,7 @@ package by.trubeckij.repositories.constants;
 public class ProcessorConstants {
     private ProcessorConstants() {
     }
+
     public static final String MANAGER = "Manager";
     public static final String EMPLOYEE = "Employee";
     public static final String OUTPUT = "output";

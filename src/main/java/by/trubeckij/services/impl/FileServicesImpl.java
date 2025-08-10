@@ -9,21 +9,21 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.Map;
 
+import static by.trubeckij.constants.ServicesConstants.CONTINUING_EXECUTION_SKIPPING_PROBLEMATIC_FILES;
+import static by.trubeckij.constants.ServicesConstants.ERROR;
+import static by.trubeckij.constants.ServicesConstants.IO_ERROR;
+import static by.trubeckij.constants.ServicesConstants.JOIN_MESSAGE;
+import static by.trubeckij.constants.ServicesConstants.PART_INCORRECT_PARAMETERS;
 import static by.trubeckij.util.ParseArgs.parseArgs;
 import static by.trubeckij.util.Validator.validateArgsParam;
 
 
 @Slf4j
 public class FileServicesImpl implements FileServices {
-    private static final String ERROR = "Error: ";
-    private static final String IO_ERROR = "IO Error: ";
-    private static final int EXIT_CODE_INVALID_ARGS = 1;
-    private static final int EXIT_CODE_IO_ERROR = 1;
-    public static final String JOIN_MESSAGE = "{}";
+
     private final ProcessorRepository processorService = new ProcessorRepositoryImpl();
 
     public void sortedParamsFiles(String[] args) {
-
         try {
             Map<String, String> params = parseArgs(args);
             validateArgsParam(params);
@@ -36,11 +36,10 @@ public class FileServicesImpl implements FileServices {
             );
         } catch (IllegalArgumentException e) {
             log.error(ERROR + JOIN_MESSAGE, e.getMessage());
-            log.info("Part of the processing will be skipped due to incorrect parameters");
-        }
-        catch (IOException e) {
+            log.info(PART_INCORRECT_PARAMETERS);
+        } catch (IOException e) {
             log.error(IO_ERROR + JOIN_MESSAGE, e.getMessage());
-            log.info("Continuing execution, skipping problematic files");
+            log.info(CONTINUING_EXECUTION_SKIPPING_PROBLEMATIC_FILES);
         }
     }
 }

@@ -13,13 +13,13 @@ import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.List;
 
+import static by.trubeckij.constants.ServicesConstants.DEPARTMENT_MIN_MAX_MID;
+import static by.trubeckij.constants.ServicesConstants.FORMAT;
 import static java.lang.System.out;
 
 @Slf4j
 public class StatisticsServiceImpl implements StatisticsService {
 
-    public static final String FORMAT = "%s,%.2f,%.2f,%.2f\n";
-    public static final String DEPARTMENT_MIN_MAX_MID = "department,min,max,mid\n";
 
     public void generate(List<Department> departments, String output, String path) throws IOException {
         StringBuilder stats = new StringBuilder(DEPARTMENT_MIN_MAX_MID);

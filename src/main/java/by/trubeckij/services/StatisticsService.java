@@ -13,8 +13,8 @@ public interface StatisticsService {
      * Generates statistics for departments.
      *
      * @param departments list of departments
-     * @param output output mode (console or file)
-     * @param path file path for output
+     * @param output      output mode (console or file)
+     * @param path        file path for output
      * @throws IOException if I/O error occurs
      */
     void generate(List<Department> departments, String output, String path) throws IOException;

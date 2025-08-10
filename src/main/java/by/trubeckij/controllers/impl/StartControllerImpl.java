@@ -5,14 +5,15 @@ import by.trubeckij.services.FileServices;
 import by.trubeckij.services.impl.FileServicesImpl;
 import lombok.extern.slf4j.Slf4j;
 
+import static by.trubeckij.constants.ControllerConstants.FILE_PROCESSING_COMPLETED_SUCCESSFULLY_WITH_ARGUMENTS;
+import static by.trubeckij.constants.ControllerConstants.STARTING_FILE_PROCESSING_WITH_ARGUMENTS;
+import static by.trubeckij.constants.ControllerConstants.UNEXPECTED_ERROR_DURING_FILE_PROCESSING;
+import static by.trubeckij.constants.ControllerConstants.UNEXPECTED_ERROR_DURING_FILE_PROCESSING_WITH_ARGUMENTS;
+
 
 @Slf4j
 public class StartControllerImpl implements StartController {
 
-    public static final String STARTING_FILE_PROCESSING_WITH_ARGUMENTS = "Starting file processing with arguments: {}";
-    public static final String FILE_PROCESSING_COMPLETED_SUCCESSFULLY_WITH_ARGUMENTS = "File processing completed successfully with arguments: {}";
-    public static final String UNEXPECTED_ERROR_DURING_FILE_PROCESSING_WITH_ARGUMENTS = "Unexpected error during file processing with arguments {}: {}";
-    public static final String UNEXPECTED_ERROR_DURING_FILE_PROCESSING = "Unexpected error during file processing";
     private final FileServices fileServices = new FileServicesImpl();
 
     public void sortedFiles(String[] args) {
