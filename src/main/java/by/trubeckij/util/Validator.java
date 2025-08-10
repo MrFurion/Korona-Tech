@@ -18,6 +18,8 @@ import static by.trubeckij.constants.ValidatorConstants.UNKNOWN_PARAMETER;
 @Slf4j
 public class Validator {
 
+    public static final String WHEN_USING_OUTPUT_FILE_YOU_MUST_SPECIFY_A_NON_EMPTY_PATH_WITH_PATH_PATH = "When using --output=file, you must specify a non-empty path with --path=<path>";
+
     private Validator() {
     }
 
@@ -71,9 +73,11 @@ public class Validator {
     }
 
     private static void checkPathWithoutFileOutput(Map<String, String> params) {
-        if (params.containsKey(ArgsParameters.PATH.getArgsParameter()) &&
-            !ArgsParameters.FILE.getArgsParameter().equals(params.get(ArgsParameters.OUTPUT.getArgsParameter()))) {
-            throw new IllegalArgumentException(PATH_SPECIFIED_WITHOUT_OUTPUT_FILE);
+        if (ArgsParameters.FILE.getArgsParameter().equals(params.get(ArgsParameters.OUTPUT.getArgsParameter()))) {
+            String pathValue = params.get(ArgsParameters.PATH.getArgsParameter());
+            if (pathValue == null || pathValue.trim().isEmpty()) {
+                throw new IllegalArgumentException(WHEN_USING_OUTPUT_FILE_YOU_MUST_SPECIFY_A_NON_EMPTY_PATH_WITH_PATH_PATH);
+            }
         }
     }
 

@@ -36,10 +36,11 @@ public class FileServicesImpl implements FileServices {
             );
         } catch (IllegalArgumentException e) {
             log.error(ERROR + JOIN_MESSAGE, e.getMessage());
-            System.exit(EXIT_CODE_INVALID_ARGS);
-        } catch (IOException e) {
+            log.info("Part of the processing will be skipped due to incorrect parameters");
+        }
+        catch (IOException e) {
             log.error(IO_ERROR + JOIN_MESSAGE, e.getMessage());
-            System.exit(EXIT_CODE_IO_ERROR);
+            log.info("Continuing execution, skipping problematic files");
         }
     }
 }
