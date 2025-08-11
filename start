@@ -1,3 +1,5 @@
+Примеры:
+Из IDEA
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar --sort=name --order=asc --stat
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar --sort=name --order=desc --stat
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=asc --stat
@@ -5,3 +7,6 @@ java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=desc --stat
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=desc --stat -o=file --path=output/statistics.txt
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar --stat
 java -jar build/libs/Korona-Tech-1.0-SNAPSHOT.jar -s=salary --order=desc --stat --output=console
+
+Jar файл из терменала
+java -jar Korona-Tech-1.0-SNAPSHOT.jar --sort=name --order=asc --stat
